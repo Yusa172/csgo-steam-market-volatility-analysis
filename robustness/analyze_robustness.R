@@ -116,6 +116,10 @@ write_csv(event_results, file.path(script_dir, "event_study_results.csv"))
 
 # ---- 3. Graficos ---------------------------------------------------------------------
 
+pt_number <- function(value){
+  format(round(value, 1), nsmall = 1, decimal.mark = ",")
+}
+
 trade_up_date <- as.Date("2025-10-23")
 
 trade_up_index <- data %>%
@@ -141,9 +145,9 @@ trade_up_plot <- ggplot(trade_up_index, aes(x = date, y = price_index, color = i
   annotate("text", x = trade_up_date, y = max(trade_up_index$price_index) * 0.97, label = "Trade-Up Update (23/10/2025)", angle = 90, vjust = -0.6, hjust = 1, size = 3.4) +
   labs(
     title = "Choque de oferta: update dos knife trade-ups",
-    subtitle = "Preco normalizado (mediana dos 7 dias antes do update = 100), 45 dias antes e depois",
+    subtitle = "Preço normalizado (mediana dos 7 dias antes do update = 100), 45 dias antes e depois",
     x = "Data",
-    y = "Indice de preco (base 100)",
+    y = "Índice de preço (base 100)",
     color = NULL
   ) +
   theme_minimal(base_size = 13) +
@@ -171,14 +175,14 @@ deagle_plot <- ggplot() +
   geom_line(data = deagle_weekly, aes(x = week, y = price), color = "#0f766e", linewidth = 1.3) +
   scale_color_manual(values = c("1-2 vendas no dia" = "#f97316", "3 ou mais vendas no dia" = "#2563eb")) +
   labs(
-    title = "Desert Eagle Blaze (FN) em 2024: ruido de liquidez vs. tendencia",
+    title = "Desert Eagle Blaze (FN) em 2024: ruído de liquidez vs. tendência",
     subtitle = paste0(
-      "Volatilidade diaria (metodo original): ", round(deagle_report$naive_annualized_volatility_percent, 1),
-      "% | Com precos semanais ponderados pelo volume: ", round(deagle_report$weekly_vwap_annualized_volatility_percent, 1),
-      "% | ", round(deagle_report$days_with_1_or_2_sales_percent, 1), "% dos dias com 1-2 vendas"
+      "Volatilidade diária (método original): ", pt_number(deagle_report$naive_annualized_volatility_percent),
+      "% | Com preços semanais ponderados pelo volume: ", pt_number(deagle_report$weekly_vwap_annualized_volatility_percent),
+      "% | ", pt_number(deagle_report$days_with_1_or_2_sales_percent), "% dos dias com 1-2 vendas"
     ),
     x = "Data",
-    y = "Preco",
+    y = "Preço",
     color = NULL
   ) +
   theme_minimal(base_size = 13) +
@@ -202,9 +206,9 @@ liquidity_plot <- robust_summary %>%
   scale_x_log10(labels = scales::label_comma(), expand = expansion(mult = c(0.05, 0.25))) +
   labs(
     title = "Liquidez vs. volatilidade medida",
-    subtitle = "Itens com poucas vendas por dia mostram volatilidade muito maior: parte e ruido de liquidez, nao so especulacao",
-    x = "Volume diario mediano (escala log)",
-    y = "Volatilidade anualizada - metodo original (%)",
+    subtitle = "Itens com poucas vendas por dia mostram volatilidade muito maior: parte é ruído de liquidez, não só especulação",
+    x = "Volume diário mediano (escala log)",
+    y = "Volatilidade anualizada - método original (%)",
     color = NULL
   ) +
   theme_minimal(base_size = 13) +
