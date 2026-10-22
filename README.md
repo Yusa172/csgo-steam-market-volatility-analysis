@@ -4,7 +4,7 @@ Recolha do histórico de preços do Steam Community Market e análise de preço,
 
 Este repositório acompanha o trabalho **"O poder de mercado da Valve nas skins do Counter-Strike 2"** (Simão Fiúza, UC de Economia do Desporto, Licenciatura em Economia, Universidade da Beira Interior, 2025/2026). Todos os gráficos e o teste de volatilidade do Anexo 4 do trabalho são gerados pelos scripts daqui.
 
-📄 **Trabalho completo (PDF):** [`paper/poder_mercado_valve_skins_cs2.pdf`](paper/poder_mercado_valve_skins_cs2.pdf)
+📄 **Trabalho completo (PDF):** [`paper/Simao_Fiuza_Poder_de_Mercado_Valve_CS2.pdf`](paper/Simao_Fiuza_Poder_de_Mercado_Valve_CS2.pdf)
 
 ## Pergunta de investigação
 
