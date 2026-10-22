@@ -231,3 +231,7 @@ No caso da Desert Eagle Blaze em 2024, o teste extra foi criado para mostrar iss
 
 - [The Motley Fool - How to Calculate Annualized Volatility](https://www.fool.com/investing/how-to-calculate/annualized-volatility/): usado para confirmar a logica geral da volatilidade anualizada, em que se multiplica o desvio padrao pela raiz quadrada do numero de periodos.
 - [Loris Tools - Historical Volatility Calculator](https://loris.tools/tools/volatility-calculator): usado como referencia para o calculo de volatilidade historica com retornos logaritmicos, desvio padrao e anualizacao; tambem refere o uso de `sqrt(365)` em mercados que negociam todos os dias.
+
+## Analise revista
+
+A pasta `robustness/` repete a analise com os dados limpos (outliers, dias sem vendas, dados horarios), acrescenta metricas de liquidez, testes estatisticos (Jarque-Bera, ARCH-LM, Welch, Wilcoxon, F) e estudos de evento para o update dos trade-ups, o anuncio/lancamento do CS2 e as vitorias da FaZe. Os resultados e a interpretacao estao em `robustness/RESULTADOS.md`.

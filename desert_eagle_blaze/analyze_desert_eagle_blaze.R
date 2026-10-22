@@ -104,11 +104,13 @@ ggsave(
   dpi = 160
 )
 
+# O retorno e calculado antes de filtrar o ano, para o primeiro dia de 2024 comparar com
+# o ultimo preco de 2023 (e assim que foram obtidos os valores do Anexo 4 do trabalho).
 data_2024 <- data %>%
-  filter(year(date) == 2024) %>%
   arrange(date) %>%
+  mutate(log_return = log(price / lag(price))) %>%
+  filter(year(date) == 2024) %>%
   mutate(
-    log_return = log(price / lag(price)),
     absolute_return = abs(log_return),
     percent_return = log_return * 100,
     big_move = absolute_return >= 0.05,
@@ -153,6 +155,7 @@ write_csv(
 
 volatility_test_text <- paste0(
   "Desert Eagle Blaze 2024 volatility test\n\n",
+  "Annualization days: 365\n",
   "Observations: ", volatility_summary$observations, "\n",
   "Price range: ", round(volatility_summary$price_range_percent, 2), "%\n",
   "Daily return standard deviation: ", round(volatility_summary$daily_return_sd_percent, 2), "%\n",
