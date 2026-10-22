@@ -4,6 +4,8 @@ Recolha do histórico de preços do Steam Community Market e análise de preço,
 
 Este repositório acompanha o trabalho **"O poder de mercado da Valve nas skins do Counter-Strike 2"** (Simão Fiúza, UC de Economia do Desporto, Licenciatura em Economia, Universidade da Beira Interior, 2025/2026). Todos os gráficos e o teste de volatilidade do Anexo 4 do trabalho são gerados pelos scripts daqui.
 
+📄 **Trabalho completo (PDF):** [`paper/poder_mercado_valve_skins_cs2.pdf`](paper/poder_mercado_valve_skins_cs2.pdf)
+
 ## Pergunta de investigação
 
 Até que ponto a Valve detém poder sobre o mercado de skins do Counter-Strike 2? Os preços resultam da oferta e da procura no Steam Market, mas a Valve controla os mecanismos que definem a oferta (cases, drop rates, trade-ups, updates e taxas).
@@ -29,6 +31,7 @@ Interpretação: o update dos trade-ups é um **choque de oferta** (preço das f
 | `paracord_knives/` | Quatro Paracord Knives e o impacto do update dos trade-ups (Gráfico 4). |
 | `major_stickers/` | Stickers de Majors e o efeito dos esports (Gráfico 1). |
 | `robustness/` | Análise revista: limpeza dos dados, liquidez, testes estatísticos e estudos de evento. |
+| `paper/` | O trabalho em PDF. |
 | `R/steam_helpers.R` | Funções partilhadas da análise revista. |
 | `run_all.R` | Corre todos os scripts R de uma vez. |
 | `generate_all_datasets.py` | Recolhe todos os datasets da Steam. |
